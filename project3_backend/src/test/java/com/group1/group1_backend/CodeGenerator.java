@@ -12,14 +12,14 @@ public class CodeGenerator {
         String username = "group1";
         String password = "888888";
         String moduleName = "sys";
-        String mapperLocation = "C:\\Users\\16654\\Desktop\\Project\\Java\\group1_backend\\src\\main\\resources\\mapper\\" + moduleName;
+        String mapperLocation = "C:\\Users\\16654\\Desktop\\Project\\Java\\group1_project3\\project3_backend\\src\\main\\resources\\mapper\\" + moduleName;
         String tables = "user,role,user_role,conversation,log";
         FastAutoGenerator.create(url, username, password)
                 .globalConfig(builder -> {
                     builder.author("linqingchuan") // 设置作者
 //                            .enableSwagger() // 开启 swagger 模式
 //                            .fileOverride() // 覆盖已生成文件
-                            .outputDir("C:\\Users\\16654\\Desktop\\Project\\Java\\group1_backend\\src\\main\\java"); // 指定输出目录
+                            .outputDir("C:\\Users\\16654\\Desktop\\Project\\Java\\group1_project3\\project3_backend\\src\\main\\java"); // 指定输出目录
                 })
                 .packageConfig(builder -> {
                     builder.parent("com.group1.group1_backend") // 设置父包名

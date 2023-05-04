@@ -92,7 +92,6 @@ public class UserController {
     }
 
     @GetMapping("/list")
-
     public Result<Map<String, Object>> getUserList(@RequestParam(value = "username", required = false) String username,
                                                    @RequestParam(value = "phone", required = false) String phone,
                                                    @RequestParam(value = "startTime", required = false) String startTime,
