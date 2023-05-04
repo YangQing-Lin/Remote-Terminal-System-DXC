@@ -26,8 +26,8 @@ public class LogController {
     @Autowired
     private ILogService logService;
 
-    @GetMapping("/all")
-    public Result<?> getAll() {
+    @GetMapping("/list")
+    public Result<?> getList() {
         System.out.println(logService.list());
         return Result.success("获取所有日志信息成功", logService.list());
     }

@@ -24,8 +24,8 @@ public class ConversationController {
     @Autowired
     private IConversationService conversationService;
 
-    @GetMapping("/all")
-    public Result<?> getAll() {
+    @GetMapping("/list")
+    public Result<?> getList() {
         System.out.println(conversationService.list());
         return Result.success("获取所有会话信息成功", conversationService.list());
     }
