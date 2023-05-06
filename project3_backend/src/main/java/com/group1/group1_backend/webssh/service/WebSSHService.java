@@ -1,9 +1,14 @@
-package com.group1.group1_backend.sys.service;
+package com.group1.group1_backend.webssh.service;
 
 import org.springframework.web.socket.WebSocketSession;
 
 import java.io.IOException;
 
+/**
+ * @Description: WebSSH的业务逻辑
+ * @Author: NoCortY
+ * @Date: 2020/3/7
+ */
 public interface WebSSHService {
     /**
      * @Description: 初始化ssh连接
