@@ -13,6 +13,7 @@ public class MyCorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://localhost:8888");  // 允许的域,不要写*，否则cookie就无法使用了
+        configuration.addAllowedOrigin("http://192.168.97.7:8888");
         configuration.setAllowCredentials(true);  // 传递Cookie
         configuration.addAllowedMethod("*");  // 允许的方法
         configuration.addAllowedHeader("*");  // 允许的请求头信息

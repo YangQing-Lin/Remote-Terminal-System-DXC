@@ -73,6 +73,11 @@ public class WebSSHServiceImpl implements WebSSHService {
         } catch (IOException e) {
             logger.error("Json转换异常");
             logger.error("异常信息:{}", e.getMessage());
+            try {
+                session.sendMessage(new TextMessage("异常:" + e.getMessage()));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             return;
         }
         String userId = String.valueOf(session.getAttributes().get(ConstantPool.USER_UUID_KEY));
@@ -89,6 +94,11 @@ public class WebSSHServiceImpl implements WebSSHService {
                     } catch (JSchException | IOException e) {
                         logger.error("webssh连接异常");
                         logger.error("异常信息:{}", e.getMessage());
+                        try {
+                            session.sendMessage(new TextMessage("异常:" + e.getMessage()));
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
                         close(session);
                     }
                 }
@@ -102,6 +112,11 @@ public class WebSSHServiceImpl implements WebSSHService {
                 } catch (IOException e) {
                     logger.error("webssh连接异常");
                     logger.error("异常信息:{}", e.getMessage());
+                    try {
+                        session.sendMessage(new TextMessage("异常:" + e.getMessage()));
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     close(session);
                 }
             }
