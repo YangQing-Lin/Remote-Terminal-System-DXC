@@ -28,25 +28,25 @@ public class LogController {
 
     @GetMapping("/list")
     public Result<?> getList() {
-        System.out.println(logService.list());
+        System.out.println("logService list: " + logService.list());
         return Result.success("获取所有日志信息成功", logService.list());
     }
 
     @PostMapping("/add")
     public Result<?> addConversation(@RequestBody Log log) {
-        logService.add(log);
-        return Result.success("添加日志成功");
+        Result<?> add = logService.add(log);
+        return add;
     }
 
     @DeleteMapping("/{id}")
-    public Result<User> deleteConversationById(@PathVariable("id") Integer id) {
-        logService.deleteById(id);
-        return Result.success("删除日志成功");
+    public Result<?> deleteConversationById(@PathVariable("id") Integer id) {
+        Result<?> result = logService.deleteById(id);
+        return result;
     }
 
     @PutMapping("/update")
     public Result<?> updateConversation(@RequestBody Log log) {
-        logService.update(log);
-        return Result.success("更新日志成功");
+        Result<?> update = logService.update(log);
+        return update;
     }
 }

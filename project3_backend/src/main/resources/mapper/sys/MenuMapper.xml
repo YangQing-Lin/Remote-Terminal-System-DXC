@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.group1.group1_backend.sys.mapper.MenuMapper">
-    <select id="getMunuListByUserId" resultType="Menu">
+    <select id="getMenuListByUserId" resultType="Menu">
         SELECT
             distinct  a.*
         FROM x_menu a,

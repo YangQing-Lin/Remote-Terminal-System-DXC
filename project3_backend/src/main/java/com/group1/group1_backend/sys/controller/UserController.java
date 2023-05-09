@@ -78,7 +78,6 @@ public class UserController {
     public Result<Map<String, Object>> getUserInfo(@RequestHeader("X-Token") String token) {
 //        根据token获取用户信息，从redis里获取
         Map<String, Object> data = userService.getUserInfo(token);
-        System.out.printf("in user controller. data: " + data);
         if (data != null) {
             return Result.success(data);
         }

@@ -47,6 +47,8 @@ public class Log implements Serializable {
      */
     private String command;
 
+    private String username;
+
     /**
      * 密码
      */
@@ -102,6 +104,9 @@ public class Log implements Serializable {
         this.password = password;
     }
 
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
+
     @Override
     public String toString() {
         return "Log{" +
@@ -111,7 +116,8 @@ public class Log implements Serializable {
             ", ip=" + ip +
             ", port=" + port +
             ", command=" + command +
-            ", password=" + password +
+                ", password=" + password +
+                ", username=" + username +
         "}";
     }
 }

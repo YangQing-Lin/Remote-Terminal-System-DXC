@@ -36,6 +36,8 @@ public class Menu implements Serializable {
     private Integer parentId;
     private String isLeaf;
     private Boolean hidden;
+    private String type;
+    private String statue;
 
     @TableField(exist = false)  // 屏蔽这个字段，这样MyBatis-Plus就不会去匹配这个表了
     @JsonInclude(JsonInclude.Include.NON_EMPTY)  // 如果该字段值为null，那么就不会返回这个字段。如果返回null的话会造成前端动态路由出问题

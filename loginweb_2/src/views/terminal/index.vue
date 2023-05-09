@@ -7,10 +7,11 @@
         </div>
         <!-- <make-terminal :terminalInfo="editableTabs[0].content"></make-terminal> -->
         <el-tabs v-model="editableTabsValue" type="card" @tab-click="handleClick" closable @tab-remove="removeTab">
-            <el-tab-pane v-for="(item, index) in editableTabs" :key="index" :label="item.title" :name="item.name">
-                <div class="test_div"></div>
-                <terminal ref="terminal" :terminalInfo="item.content"></terminal>
-            </el-tab-pane>
+            <!-- <el-tab-pane v-for="(item, index) in editableTabs" :key="index" :label="item.title" :name="item.name">
+                <div class="test_div"></div> -->
+            <terminal ref="terminal" :terminalInfo="editableTabs[0].content"></terminal>
+            <terminal ref="terminal" :terminalInfo="editableTabs[0].content"></terminal>
+            <!-- </el-tab-pane> -->
         </el-tabs>
         <button @click="test">test</button>
     </div>
@@ -18,9 +19,9 @@
 
 <script>
 import terminal from "@/components/terminal/terminal.vue";
-import MakeTerminal from "@/components/terminal/makeTerminal.vue";
+// import MakeTerminal from "@/components/terminal/makeTerminal.vue";
 export default {
-    components: { terminal, MakeTerminal },
+    components: { terminal },
     data() {
         return {
             editableTabsValue: "0",

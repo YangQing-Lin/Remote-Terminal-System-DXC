@@ -1,5 +1,6 @@
 package com.group1.group1_backend.sys.service;
 
+import com.group1.group1_backend.comm.vo.Result;
 import com.group1.group1_backend.sys.entity.Conversation;
 import com.group1.group1_backend.sys.entity.Log;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -13,7 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-05-04
  */
 public interface ILogService extends IService<Log> {
-    void add(Log log);
-    void deleteById(Integer id);
-    void update(Log log);
+    Result<?> add(Log log);
+    Result<?> deleteById(Integer id);
+    Result<?> update(Log log);
 }

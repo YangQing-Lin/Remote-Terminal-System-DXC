@@ -1,5 +1,6 @@
 package com.group1.group1_backend.sys.service;
 
+import com.group1.group1_backend.comm.vo.Result;
 import com.group1.group1_backend.sys.entity.Conversation;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @since 2023-05-04
  */
 public interface IConversationService extends IService<Conversation> {
-    void add(Conversation conversation);
-    void deleteById(Integer id);
-    void update(Conversation conversation);
+    Result<?> add(Conversation conversation);
+    Result<?> deleteById(Integer id);
+    Result<?> update(Conversation conversation);
 }

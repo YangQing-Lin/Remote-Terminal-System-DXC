@@ -94,7 +94,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(User::getUsername, username);
         User loginUser = this.baseMapper.selectOne(wrapper);  // 从数据库中获取用户名相同的用户的信息
-        System.out.println("login user: " + loginUser);
 
         if (loginUser != null && passwordEncoder.matches(oldPassword, loginUser.getPassword())) {
             redisTemplate.delete(token);  // 成功修改密码时需要删除之前的登录信息，重新登录
@@ -121,8 +120,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         if (loginUser != null) {
             Map<String, Object> data = new HashMap<>();
-            data.put("name", loginUser.getUsername());
-            data.put("avatar", loginUser.getStatue());
+            data.put("name", loginUser.getName());
+            data.put("username", loginUser.getUsername());
+            data.put("url", loginUser.getUrl());
+            data.put("phone", loginUser.getPhone());
+            data.put("type", loginUser.getType());
+            data.put("email", loginUser.getEmail());
+            data.put("createTime", loginUser.getCreateTime());
+            data.put("id", loginUser.getId());
 
             // 角色
             List<String> roleList = this.baseMapper.getRoleNamesByUserId(loginUser.getId());
@@ -131,6 +136,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             // 权限列表
             List<Menu> menuList = menuService.getMenuListByUserId(loginUser.getId());
             data.put("menuList", menuList);
+
+            System.out.println("data: " + data);
 
             return data;
         }
@@ -159,6 +166,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional
     public void updateUser(User user) {
+        System.out.println("update user:" + user);
         // 更新用户表
         this.baseMapper.updateById(user);
         // 清除原有角色

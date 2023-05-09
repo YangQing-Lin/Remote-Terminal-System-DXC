@@ -24,7 +24,7 @@ export default {
     mounted() {
         this.openTerminal(this.terminal);
         console.log("$$$$$$$$$$$$$$$$");
-        console.log(this.terminalInfo);
+        console.log(this.terminal);
         console.log(this.terminalInfo.is_show);
     },
     methods: {

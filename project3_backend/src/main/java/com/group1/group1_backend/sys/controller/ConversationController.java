@@ -32,19 +32,19 @@ public class ConversationController {
 
     @PostMapping("/add")
     public Result<?> addConversation(@RequestBody Conversation conversation) {
-        conversationService.add(conversation);
-        return Result.success("添加会话成功");
+        Result<?> add = conversationService.add(conversation);
+        return add;
     }
 
     @DeleteMapping("/{id}")
-    public Result<User> deleteConversationById(@PathVariable("id") Integer id) {
-        conversationService.deleteById(id);
-        return Result.success("删除会话成功");
+    public Result<?> deleteConversationById(@PathVariable("id") Integer id) {
+        Result<?> result = conversationService.deleteById(id);
+        return result;
     }
 
     @PutMapping("/update")
     public Result<?> updateConversation(@RequestBody Conversation conversation) {
-        conversationService.update(conversation);
-        return Result.success("更新会话成功");
+        Result<?> update = conversationService.update(conversation);
+        return update;
     }
 }
